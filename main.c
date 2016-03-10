@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/07 19:49:46 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/10 15:38:33 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int		main(void)
 {
 	t_mlx	mlx;
 	t_img	img;
+	int	x;
+	int	y;
 
+	y = 0;
 	img.color = 2;
 	mlx.mlx = mlx_init();
 	mlx.height = 800;
@@ -51,6 +54,17 @@ int		main(void)
 	img.img = mlx_new_image(mlx.mlx, mlx.height, mlx.width);
 	mlx.win = mlx_new_window(mlx.mlx, mlx.height, mlx.width, "fractol");
 	img.d = mlx_get_data_addr(img.img, &img.bpp, &img.size_line, &img.endian);
+	while (y < 800)
+	{
+		x = 0;
+		while (x < 800)
+		{
+			img.color = ft_color(img.color);
+			put_pixel(&img, x, y, img.color);
+			x++;
+		}
+		y++;
+	}
 	//ft_fractal(mlx, img);
 	//mlx_key_hook(mlx.win, &ft_key_hook, &mlx);
 	//mlx_mouse_hook(mlx.win, &ft_mouse_hook, &mlx);

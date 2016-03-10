@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/07 17:50:40 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/10 20:18:14 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,32 @@
 
 # include <mlx.h>
 # include <math.h>
+# include <stdlib.h>
 
-typedef struct	s_img
+# define WIN_W 800
+# define WIN_H 800
+
+typedef struct	t_f
 {
 	void		*img;
-	int			color;
+	double		pr;
+	double		pi;
+	double		cr;
+	double		ci;
 	int			bpp;
 	int			endian;
 	int			size_line;
 	char		*d;
-}				t_img;
+}				t_f;
 
 typedef struct	s_mlx
 {
+	struct t_f	*f;
 	void		*mlx;
 	void		*win;
-	int			height;
-	int			width;
+	double		iter;
+	double		freq;
+	int			color;
 }				t_mlx;
 
 #endif

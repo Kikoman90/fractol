@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/10 20:28:17 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/10 20:55:09 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int		ft_julia(t_mlx *mlx, int x, int y)
 
 	f = mlx->f;
 	i = -1;
-	f->pr = -2.1 + (x * 4.2 / WIN_W);
-	f->pi = -2.1 + (y * 4.2 / WIN_H);
-	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) <= 4)
+	f->pr = -2.1 + ((x * 4.2) / WIN_W);
+	f->pi = -2.1 + ((y * 4.2) / WIN_H);
+	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;
 		f->pr = f->pr * f->pr - f->pi * f->pi + f->cr;
@@ -39,7 +39,7 @@ int		ft_color(int i, t_mlx *mlx)
 	int		blue;
 	double	co;
 
-	if (i >= mlx->iter)
+	if (i == mlx->iter)
 		return (0);
 	co = mlx->freq * (i + 1);
 	red = cos(co) * 127 + 128;
@@ -50,8 +50,8 @@ int		ft_color(int i, t_mlx *mlx)
 
 void	put_pixel(t_f *f, int x, int y, int color)
 {
-	int				i;
-	unsigned int	p;
+	int	i;
+	int	p;
 
 	i = 0;
 	p = x * (f->bpp / 8) + y * (f->size_line);
@@ -90,8 +90,8 @@ t_f		*init_fract(void)
 
 	if (!(f = (t_f *)malloc(sizeof(t_f))))
 		return (NULL);
-	f->cr = -0.772691322542185;
-	f->ci = 0.124281466072787;
+	f->cr = 0.32;
+	f->ci = 0.043;
 	f->pr = 0.0;
 	f->pi = 0.0;
 	return (f);
@@ -108,10 +108,10 @@ t_mlx	*init_mlx(void)
 	mlx->mlx = mlx_init();
 	mlx->f->img = mlx_new_image(mlx->mlx, WIN_W, WIN_H);
 	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, "fractol");
-	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line\
-				, &mlx->f->endian);
-	mlx->freq = 0.1;
-	mlx->iter = 70.0;
+	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line,\
+				&mlx->f->endian);
+	mlx->freq = 5.0;
+	mlx->iter = 16.0;
 	mlx->color = 2;
 	return (mlx);
 }

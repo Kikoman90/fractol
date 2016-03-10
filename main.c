@@ -6,12 +6,11 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/10 20:55:09 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/10 21:11:54 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 int		ft_julia(t_mlx *mlx, int x, int y)
 {
@@ -21,8 +20,8 @@ int		ft_julia(t_mlx *mlx, int x, int y)
 
 	f = mlx->f;
 	i = -1;
-	f->pr = -2.1 + ((x * 4.2) / WIN_W);
-	f->pi = -2.1 + ((y * 4.2) / WIN_H);
+	f->pr = -2.0 + ((x * 4.0) / WIN_W);
+	f->pi = -2.0 + ((y * 4.0) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;
@@ -50,8 +49,8 @@ int		ft_color(int i, t_mlx *mlx)
 
 void	put_pixel(t_f *f, int x, int y, int color)
 {
-	int	i;
-	int	p;
+	unsigned int	i;
+	unsigned int	p;
 
 	i = 0;
 	p = x * (f->bpp / 8) + y * (f->size_line);
@@ -67,6 +66,7 @@ int		ft_draw(t_mlx *mlx)
 {
 	int	x;
 	int	y;
+	int color;
 
 	y = 0;
 	while (y < WIN_H)
@@ -74,8 +74,8 @@ int		ft_draw(t_mlx *mlx)
 		x = 0;
 		while (x < WIN_W)
 		{
-			mlx->color = ft_color(ft_julia(mlx, x, y), mlx);
-			put_pixel(mlx->f, x, y, mlx->color);
+			color = ft_color(ft_julia(mlx, x, y), mlx);
+			put_pixel(mlx->f, x, y, color);
 			x++;
 		}
 		y++;
@@ -90,8 +90,8 @@ t_f		*init_fract(void)
 
 	if (!(f = (t_f *)malloc(sizeof(t_f))))
 		return (NULL);
-	f->cr = 0.32;
-	f->ci = 0.043;
+	f->cr = -0.772691322542185;
+	f->ci = 0.124281466072787;
 	f->pr = 0.0;
 	f->pi = 0.0;
 	return (f);
@@ -110,9 +110,9 @@ t_mlx	*init_mlx(void)
 	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, "fractol");
 	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line,\
 				&mlx->f->endian);
-	mlx->freq = 5.0;
-	mlx->iter = 16.0;
-	mlx->color = 2;
+	mlx->freq = 0.1;
+	mlx->iter = 120.0;
+	mlx->color = 18;
 	return (mlx);
 }
 

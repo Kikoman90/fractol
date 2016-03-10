@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/10 20:44:49 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/10 21:17:47 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define WIN_W 800
 # define WIN_H 800
 
-typedef struct	t_f
+typedef struct	s_f
 {
 	void		*img;
 	double		pr;

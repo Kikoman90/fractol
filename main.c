@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/10 21:11:54 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/10 21:18:05 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,8 @@ t_mlx	*init_mlx(void)
 	mlx->mlx = mlx_init();
 	mlx->f->img = mlx_new_image(mlx->mlx, WIN_W, WIN_H);
 	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, "fractol");
-	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line,\
-				&mlx->f->endian);
+	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line\
+				, &mlx->f->endian);
 	mlx->freq = 0.1;
 	mlx->iter = 120.0;
 	mlx->color = 18;

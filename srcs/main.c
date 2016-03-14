@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 13:08:02 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 13:17:32 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int				main(int argc, char **argv)
 
 	if (argc != 2 || ft_atoi(argv[1]) < 1 || ft_atoi(argv[1]) > 3)
 	{
-		ft_putendl("usage: ./fractol 1/2/3 (Julia/Mandlebrot/Custom)");
+		ft_putendl("usage: ./fractol 1/2/3 (Julia/Mandelbrot/Custom)");
 		return (0);
 	}
 	if ((mlx = init_mlx(argv[1])) != NULL)

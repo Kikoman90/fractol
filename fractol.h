@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/10 21:17:47 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 12:05:52 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@ typedef struct	s_f
 
 typedef struct	s_mlx
 {
-	struct t_f	*f;
+	t_f			*f;
 	void		*mlx;
 	void		*win;
 	double		iter;
 	double		freq;
 	int			color;
 }				t_mlx;
+
+int				ft_draw(t_mlx *mlx);
+int				ft_color(int i, t_mlx *mlx);
+int				ft_julia(t_mlx *mlx, int x, int y);
+void			put_pixel(t_f *f, int x, int y, int color);
 
 #endif

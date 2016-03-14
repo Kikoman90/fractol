@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:34:45 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 16:43:11 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 17:05:46 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ static void	ft_reset(t_mlx *mlx)
 	mlx->f->ci = 0.2403;
 	mlx->f->pr = 0.0;
 	mlx->f->pi = 0.0;
+	mlx->minx = -2.2;
+	mlx->miny = -2.2;
+	mlx->maxx = 4.4;
+	mlx->maxy = 4.4;
 	mlx->freq = 0.1;
 	mlx->iter = 16.0;
 	mlx->color = 2;
@@ -48,6 +52,31 @@ static void	ft_switch_julia(t_mlx *mlx, double *tab1, double *tab2, int i)
 	}
 	else if ((mlx->f->cr = tab1[0]) != 4.0)
 		mlx->f->ci = tab2[0];
+}
+
+static int	ft_move(int keycode, t_mlx *mlx)
+{
+	if (keycode == 123)
+	{
+		MINX += 0.05;
+		MAXX += 0.05;
+	}
+	else if (keycode == 124)
+	{
+		MINX -= 0.05;
+		MAXX -= 0.05;
+	}
+	else if (keycode == 125)
+	{
+		MINY -= 0.05;
+		MAXY -= 0.05;
+	}
+	else if (keycode == 126)
+	{
+		MINY += 0.05;
+		MAXY += 0.05;
+	}
+	return (0);
 }
 
 static int	key_hook2(int keycode, t_mlx *mlx)
@@ -84,6 +113,7 @@ int			key_hook(int keycode, t_mlx *mlx)
 	else if (keycode == 2)
 		mlx->freq = (mlx->freq > 0.1) ? mlx->freq / 2 : mlx->freq;
 	key_hook2(keycode, mlx);
+	ft_move(keycode, mlx);
 	ft_draw(mlx);
 	return (0);
 }

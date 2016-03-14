@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 11:46:49 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 16:36:27 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 16:59:12 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static int	ft_julia(t_mlx *mlx, int x, int y)
 
 	f = mlx->f;
 	i = -1;
-	f->pr = -2.2 + ((x * 4.4) / WIN_W);
-	f->pi = -2.2 + ((y * 4.4) / WIN_H);
+	f->pr = MINX + ((x * MAXX) / WIN_W);
+	f->pi = MINY + ((y * MAXY) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;
@@ -58,8 +58,8 @@ static int	ft_mandelbrot(t_mlx *mlx, int x, int y)
 	i = -1;
 	f->pr = 0.0;
 	f->pi = 0.0;
-	f->cr = -2.2 + ((x * 4.4) / WIN_W);
-	f->ci = -2.2 + ((y * 4.4) / WIN_H);
+	f->cr = MINX + ((x * MAXX) / WIN_W);
+	f->ci = MINY + ((y * MAXY) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;
@@ -79,8 +79,8 @@ static int	ft_tricorn(t_mlx *mlx, int x, int y)
 	i = -1;
 	f->pr = 0.0;
 	f->pi = 0.0;
-	f->cr = -2.2 + ((x * 4.4) / WIN_W);
-	f->ci = -2.2 + ((y * 4.4) / WIN_H);
+	f->cr = MINX + ((x * MAXX) / WIN_W);
+	f->ci = MINY + ((y * MAXY) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;

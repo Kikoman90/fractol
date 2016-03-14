@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 15:47:16 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 17:00:27 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 
 # define WIN_W 800
 # define WIN_H 800
+
+# define MINX mlx->minx
+# define MAXX mlx->maxx
+# define MINY mlx->miny
+# define MAXY mlx->maxy
 
 typedef struct	s_f
 {
@@ -40,6 +45,10 @@ typedef struct	s_mlx
 	t_f			*f;
 	void		*mlx;
 	void		*win;
+	double		minx;
+	double		maxx;
+	double		miny;
+	double		maxy;
 	double		iter;
 	double		freq;
 	int			color;

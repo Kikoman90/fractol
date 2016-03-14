@@ -6,13 +6,13 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 11:46:49 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 13:09:04 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 13:10:44 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		ft_julia(t_mlx *mlx, int x, int y)
+static int	ft_julia(t_mlx *mlx, int x, int y)
 {
 	t_f		*f;
 	int		i;
@@ -31,7 +31,7 @@ int		ft_julia(t_mlx *mlx, int x, int y)
 	return (i);
 }
 
-int		ft_draw(t_mlx *mlx)
+int			ft_draw(t_mlx *mlx)
 {
 	int	x;
 	int	y;

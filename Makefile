@@ -6,7 +6,7 @@
 #    By: fsidler <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/09 13:47:47 by fsidler           #+#    #+#              #
-#    Updated: 2016/03/14 12:59:38 by fsidler          ###   ########.fr        #
+#    Updated: 2016/03/14 15:48:23 by fsidler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ HEADERS = includes
 
 SOURCES = srcs/fractal.c \
 		  srcs/main.c \
+		  srcs/key.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 14:37:19 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 15:47:16 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_mlx
 int				ft_draw(t_mlx *mlx);
 int				ft_instructions(void);
 int				ft_color(int i, t_mlx *mlx);
+int				key_hook(int keycode, t_mlx *mlx);
 void			put_pixel(t_f *f, int x, int y, int color);
 
 #endif

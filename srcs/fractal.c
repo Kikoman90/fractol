@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 11:46:49 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 14:36:28 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 16:00:17 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int			ft_instructions(void)
 	ft_putendl("< ^ > v : move");
 	ft_putendl("C : change color");
 	ft_putendl("F : increase frequency");
+	ft_putendl("D : decrease frequency");
 	ft_putendl("S : switch fractals");
+	ft_putendl("SPC : switch Julia parameters");
 	ft_putendl("ESC : close");
 	return (0);
 }

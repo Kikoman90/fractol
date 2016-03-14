@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 14:36:45 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 15:53:58 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static t_f		*init_fract(char *s)
 
 	if (!(f = (t_f *)malloc(sizeof(t_f))))
 		return (NULL);
-	f->cr = -0.772691322542185;
-	f->ci = 0.124281466072787;
+	f->cr = -1.1380;
+	f->ci = 0.2403;
 	f->pr = 0.0;
 	f->pi = 0.0;
 	f->nb = ft_atoi(s);
@@ -71,8 +71,8 @@ static t_mlx	*init_mlx(char *s)
 	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line\
 				, &mlx->f->endian);
 	mlx->freq = 0.1;
-	mlx->iter = 400.0;
-	mlx->color = 45;
+	mlx->iter = 16.0;
+	mlx->color = 2;
 	return (mlx);
 }
 
@@ -89,6 +89,7 @@ int				main(int argc, char **argv)
 	{
 		ft_instructions();
 		ft_draw(mlx);
+		mlx_key_hook(mlx->win, key_hook, mlx);
 		mlx_loop(mlx->mlx);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	}

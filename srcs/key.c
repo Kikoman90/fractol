@@ -6,11 +6,22 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:34:45 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 16:05:00 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 16:43:11 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static void	ft_reset(t_mlx *mlx)
+{
+	mlx->f->cr = -1.1380;
+	mlx->f->ci = 0.2403;
+	mlx->f->pr = 0.0;
+	mlx->f->pi = 0.0;
+	mlx->freq = 0.1;
+	mlx->iter = 16.0;
+	mlx->color = 2;
+}
 
 static void	ft_switch_julia(t_mlx *mlx, double *tab1, double *tab2, int i)
 {
@@ -39,6 +50,19 @@ static void	ft_switch_julia(t_mlx *mlx, double *tab1, double *tab2, int i)
 		mlx->f->ci = tab2[0];
 }
 
+static int	key_hook2(int keycode, t_mlx *mlx)
+{
+	if (keycode == 1)
+	{
+		ft_reset(mlx);
+		if (mlx->f->nb < 3)
+			mlx->f->nb++;
+		else
+			mlx->f->nb = 1;
+	}
+	return (0);
+}
+
 int			key_hook(int keycode, t_mlx *mlx)
 {
 	double	tab1[7];
@@ -47,8 +71,19 @@ int			key_hook(int keycode, t_mlx *mlx)
 	mlx_clear_window(mlx->mlx, mlx->win);
 	if (keycode == 53)
 		exit(0);
-	if (keycode == 49 && mlx->f->nb == 1)
+	else if (keycode == 49 && mlx->f->nb == 1)
 		ft_switch_julia(mlx, tab1, tab2, 0);
+	else if (keycode == 69)
+		mlx->iter = (mlx->iter < 8000) ? mlx->iter * 2 : mlx->iter;
+	else if (keycode == 78)
+		mlx->iter = (mlx->iter > 2) ? mlx->iter / 2 : mlx->iter;
+	else if (keycode == 8)
+		mlx->color++;
+	else if (keycode == 3)
+		mlx->freq = (mlx->freq < 200) ? mlx->freq * 2 : mlx->freq;
+	else if (keycode == 2)
+		mlx->freq = (mlx->freq > 0.1) ? mlx->freq / 2 : mlx->freq;
+	key_hook2(keycode, mlx);
 	ft_draw(mlx);
 	return (0);
 }

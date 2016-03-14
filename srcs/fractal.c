@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 11:46:49 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 16:00:17 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 16:36:27 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static int	ft_mandelbrot(t_mlx *mlx, int x, int y)
 
 	f = mlx->f;
 	i = -1;
-	f->pr = 0;
-	f->pi = 0;
+	f->pr = 0.0;
+	f->pi = 0.0;
 	f->cr = -2.2 + ((x * 4.4) / WIN_W);
 	f->ci = -2.2 + ((y * 4.4) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
@@ -77,8 +77,8 @@ static int	ft_tricorn(t_mlx *mlx, int x, int y)
 
 	f = mlx->f;
 	i = -1;
-	f->pr = 0;
-	f->pi = 0;
+	f->pr = 0.0;
+	f->pi = 0.0;
 	f->cr = -2.2 + ((x * 4.4) / WIN_W);
 	f->ci = -2.2 + ((y * 4.4) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
@@ -106,7 +106,7 @@ int			ft_draw(t_mlx *mlx)
 				color = ft_color(ft_julia(mlx, x, y), mlx);
 			else if (mlx->f->nb == 2)
 				color = ft_color(ft_mandelbrot(mlx, x, y), mlx);
-			else
+			else if (mlx->f->nb == 3)
 				color = ft_color(ft_tricorn(mlx, x, y), mlx);
 			put_pixel(mlx->f, x, y, color);
 			x++;

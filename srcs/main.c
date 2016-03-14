@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 13:02:10 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 13:08:02 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			put_pixel(t_f *f, int x, int y, int color)
 	}
 }
 
-static t_f		*init_fract(void)
+static t_f		*init_fract(char *s)
 {
 	t_f	*f;
 
@@ -53,16 +53,17 @@ static t_f		*init_fract(void)
 	f->ci = 0.124281466072787;
 	f->pr = 0.0;
 	f->pi = 0.0;
+	f->nb = ft_atoi(s);
 	return (f);
 }
 
-static t_mlx	*init_mlx(void)
+static t_mlx	*init_mlx(char *s)
 {
 	t_mlx	*mlx;
 
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
-	if (!(mlx->f = init_fract()))
+	if (!(mlx->f = init_fract(s)))
 		return (NULL);
 	mlx->mlx = mlx_init();
 	mlx->f->img = mlx_new_image(mlx->mlx, WIN_W, WIN_H);
@@ -84,7 +85,7 @@ int				main(int argc, char **argv)
 		ft_putendl("usage: ./fractol 1/2/3 (Julia/Mandlebrot/Custom)");
 		return (0);
 	}
-	if ((mlx = init_mlx()) != NULL)
+	if ((mlx = init_mlx(argv[1])) != NULL)
 	{
 		ft_draw(mlx);
 		mlx_loop(mlx->mlx);

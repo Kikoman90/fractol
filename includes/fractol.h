@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 13:00:43 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 13:06:57 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_f
 	int			endian;
 	int			size_line;
 	char		*d;
+	int			nb;
 }				t_f;
 
 typedef struct	s_mlx

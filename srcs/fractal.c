@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 11:46:49 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 11:48:16 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/14 13:09:04 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,12 @@ int		ft_draw(t_mlx *mlx)
 		x = 0;
 		while (x < WIN_W)
 		{
-			color = ft_color(ft_julia(mlx, x, y), mlx);
+			if (mlx->f->nb == 1)
+				color = ft_color(ft_julia(mlx, x, y), mlx);
+			else if (mlx->f->nb == 2)
+				color = 0;
+			else
+				color = 40;
 			put_pixel(mlx->f, x, y, color);
 			x++;
 		}

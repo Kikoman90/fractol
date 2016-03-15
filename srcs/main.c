@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:39:33 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 16:36:42 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 17:46:08 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ static t_mlx	*init_mlx(char *s)
 	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, "fractol");
 	mlx->f->d = mlx_get_data_addr(mlx->f->img, &mlx->f->bpp, &mlx->f->size_line\
 				, &mlx->f->endian);
-	mlx->minx = -2.2;
-	mlx->miny = -2.2;
-	mlx->maxx = 4.4;
-	mlx->maxy = 4.4;
+	mlx->minx = -3.2;
+	mlx->miny = -3.2;
+	mlx->maxx = 3.4;
+	mlx->maxy = 3.4;
 	mlx->freq = 0.1;
 	mlx->iter = 16.0;
 	mlx->color = 2;
@@ -97,7 +97,6 @@ int				main(int argc, char **argv)
 		ft_draw(mlx);
 		mlx_key_hook(mlx->win, key_hook, mlx);
 		mlx_mouse_hook(mlx->win, ft_mouse, mlx);
-		mlx_hook(mlx->win, MOTION_NOTIFY, PTR_MOTION_MASK, ft_motion, mlx);
 		mlx_loop(mlx->mlx);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	}

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:34:45 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 16:37:05 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 17:44:01 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	ft_reset(t_mlx *mlx)
 	mlx->f->pi = 0.0;
 	mlx->f->mx = 0.0;
 	mlx->f->my = 0.0;
-	mlx->minx = -2.2;
-	mlx->miny = -2.2;
-	mlx->maxx = 4.4;
-	mlx->maxy = 4.4;
+	mlx->minx = -3.2;
+	mlx->miny = -3.2;
+	mlx->maxx = 3.4;
+	mlx->maxy = 3.4;
 	mlx->freq = 0.1;
 	mlx->iter = 16.0;
 	mlx->color = 2;
@@ -91,6 +91,8 @@ static int	key_hook2(int keycode, t_mlx *mlx)
 		else
 			mlx->f->nb = 1;
 	}
+	else if (keycode == 0)
+		mlx_hook(mlx->win, MOTION_NOTIFY, PTR_MOTION_MASK, ft_motion, mlx);
 	return (0);
 }
 

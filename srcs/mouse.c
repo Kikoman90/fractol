@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 12:30:40 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 17:07:46 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 17:26:52 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int			ft_mouse(int button, int x, int y, t_mlx *mlx)
 
 	dx = MAXX - MINX;
 	dy = MAXY - MINY;
-	mlx->f->mx = 0;//((x / WIN_W) * (MAXX - MINX)) - ((MAXX - MINX) / 2) + mlx->f->mx;
-	mlx->f->my = 0;//(((WIN_H - y) / WIN_H) * (MAXY - MINY)) - ((MAXY - MINY) / 2) + mlx->f->my;
+	mlx->f->mx = ((double)(x) / WIN_W * dx) - dx / 2 + mlx->f->mx;
+	mlx->f->my = (double)(y) / WIN_H * dy - dy / 2 + mlx->f->my;
 	if ((button == 1 || button == 5) && (x >= 0 && x <= WIN_W)\
 			&& (y >= 0 && y <= WIN_H))
 	{

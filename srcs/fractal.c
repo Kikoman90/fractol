@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 11:46:49 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 17:08:21 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 17:44:27 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			ft_instructions(void)
 	ft_putendl("F : increase frequency");
 	ft_putendl("D : decrease frequency");
 	ft_putendl("S : switch fractals");
+	ft_putendl("A : activate mouse motion");
 	ft_putendl("SPC : switch Julia parameters");
 	ft_putendl("ESC : close");
 	return (0);
@@ -37,8 +38,8 @@ static int	ft_julia(t_mlx *mlx, int x, int y)
 
 	f = mlx->f;
 	i = -1;
-	f->pr = MINX + ((x * MAXX) / WIN_W);
-	f->pi = MINY + ((y * MAXY) / WIN_H);
+	f->pr = MINX + ((double)x * (MAXX - MINX) / WIN_W);
+	f->pi = MINY + ((double)y * (MAXY - MINY) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;
@@ -58,8 +59,8 @@ static int	ft_mandelbrot(t_mlx *mlx, int x, int y)
 	i = -1;
 	f->pr = 0.0;
 	f->pi = 0.0;
-	f->cr = MINX + ((x * MAXX) / WIN_W);
-	f->ci = MINY + ((y * MAXY) / WIN_H);
+	f->cr = MINX + ((double)x * (MAXX - MINX) / WIN_W);
+	f->ci = MINY + ((double)y * (MAXY - MINY) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;
@@ -79,8 +80,8 @@ static int	ft_tricorn(t_mlx *mlx, int x, int y)
 	i = -1;
 	f->pr = 0.0;
 	f->pi = 0.0;
-	f->cr = MINX + ((x * MAXX) / WIN_W);
-	f->ci = MINY + ((y * MAXY) / WIN_H);
+	f->cr = MINX + ((double)x * (MAXX - MINX) / WIN_W);
+	f->ci = MINY + ((double)y * (MAXY - MINY) / WIN_H);
 	while (++i < mlx->iter && (f->pr * f->pr + f->pi * f->pi) < 4)
 	{
 		tmp = f->pr;

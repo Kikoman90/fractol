@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:14:09 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 12:40:49 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 13:57:55 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct	s_f
 	double		pi;
 	double		cr;
 	double		ci;
+	double		mx;
+	double		my;
 	int			bpp;
 	int			endian;
 	int			size_line;
@@ -62,6 +64,7 @@ int				ft_instructions(void);
 int				ft_color(int i, t_mlx *mlx);
 int				key_hook(int keycode, t_mlx *mlx);
 int				ft_motion(int x, int y, t_mlx *mlx);
+int				ft_mouse(int button, int x, int y, t_mlx *mlx);
 void			put_pixel(t_f *f, int x, int y, int color);
 
 #endif

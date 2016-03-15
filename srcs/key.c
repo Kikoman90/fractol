@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:34:45 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 14:34:32 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 16:37:05 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	ft_reset(t_mlx *mlx)
 	mlx->f->ci = 0.2403;
 	mlx->f->pr = 0.0;
 	mlx->f->pi = 0.0;
+	mlx->f->mx = 0.0;
+	mlx->f->my = 0.0;
 	mlx->minx = -2.2;
 	mlx->miny = -2.2;
 	mlx->maxx = 4.4;

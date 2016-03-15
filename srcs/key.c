@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:34:45 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/14 17:05:46 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 12:43:52 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_switch_julia(t_mlx *mlx, double *tab1, double *tab2, int i)
 	tab2[5] = -0.65186;
 	tab1[6] = -0.3380;
 	tab2[6] = -0.6230;
-	while (mlx->f->cr != tab1[i])
+	while (mlx->f->cr != tab1[i] && i < 7)
 		i++;
 	if (i < 6)
 	{

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:34:45 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/15 17:44:01 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/15 17:54:46 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,28 @@ static void	ft_switch_julia(t_mlx *mlx, double *tab1, double *tab2, int i)
 
 static int	ft_move(int keycode, t_mlx *mlx)
 {
+	double	c;
+
+	c = ((MAXX - MINX) / WIN_W) * 10;
 	if (keycode == 123)
 	{
-		MINX += 0.05;
-		MAXX += 0.05;
+		MINX += c;
+		MAXX += c;
 	}
 	else if (keycode == 124)
 	{
-		MINX -= 0.05;
-		MAXX -= 0.05;
+		MINX -= c;
+		MAXX -= c;
 	}
 	else if (keycode == 125)
 	{
-		MINY -= 0.05;
-		MAXY -= 0.05;
+		MINY -= c;
+		MAXY -= c;
 	}
 	else if (keycode == 126)
 	{
-		MINY += 0.05;
-		MAXY += 0.05;
+		MINY += c;
+		MAXY += c;
 	}
 	return (0);
 }
